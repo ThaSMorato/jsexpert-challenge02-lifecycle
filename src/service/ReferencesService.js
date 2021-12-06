@@ -1,21 +1,17 @@
+const v8 = require("v8");
+
 class ReferencesService {
   getCounterCopyingReferences(object) {
-    // TODO: assing object to a new variable and return it.
-    return null;
+    return object;
   }
 
   getCounterWithoutCopyingReferences(object) {
-    // TODO: assing object to a new variable and return it.
-    return null;
+    return { ...object };
   }
 
-  /*
-  // @TIP: if you want to do the extra sub-challenge, uncomment and implement the following function:
   getCounterWithoutDeepCopyingReferences(object) {
-    // TODO: assing object to a new variable and return it.
-    return null;
+    return v8.deserialize(v8.serialize(object));
   }
-  */
 }
 
 module.exports = ReferencesService;

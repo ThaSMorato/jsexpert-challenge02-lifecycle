@@ -1,17 +1,17 @@
-const { describe, it, before } = require('mocha');
+const { describe, it, before } = require("mocha");
 
-const { expect } = require('chai');
+const { expect } = require("chai");
 
-const ReferencesService = require('../../../src/service/ReferencesService');
+const ReferencesService = require("../../../src/service/ReferencesService");
 
-describe('ReferencesService Suite Tests', () => {
+describe("ReferencesService Suite Tests", () => {
   let service = {};
 
   before(() => {
     service = new ReferencesService();
   });
 
-  it('should return a counter modifying the original instance (bad habit)', () => {
+  it("should return a counter modifying the original instance (bad habit)", () => {
     const a = { counter: 0 };
     const b = service.getCounterCopyingReferences(a);
 
@@ -21,7 +21,7 @@ describe('ReferencesService Suite Tests', () => {
     expect(b.counter).to.be.eql(1);
   });
 
-  it('should return a counter not modifying the original instance (good habit)', () => {
+  it("should return a counter not modifying the original instance (good habit)", () => {
     const a = { counter: 0 };
     const b = service.getCounterWithoutCopyingReferences(a);
 
@@ -31,7 +31,7 @@ describe('ReferencesService Suite Tests', () => {
     expect(b.counter).to.be.eql(1);
   });
 
-  it('should return a counter modifying the original instance (depth object side effect)', () => {
+  it("should return a counter modifying the original instance (depth object side effect)", () => {
     const a = { object: { counter: 0 } };
     const b = service.getCounterWithoutCopyingReferences(a);
 
@@ -42,7 +42,7 @@ describe('ReferencesService Suite Tests', () => {
   });
 
   // @TIP: remove the following `.skip` if you want to do the extra sub-challenge :)
-  it.skip('should return a counter without modifying the original instance (optional sub-challenge)', () => {
+  it("should return a counter without modifying the original instance (optional sub-challenge)", () => {
     const a = { object: { counter: 0 } };
     const b = service.getCounterWithoutDeepCopyingReferences(a);
 
