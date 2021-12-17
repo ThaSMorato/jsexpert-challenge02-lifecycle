@@ -1,6 +1,7 @@
 class ObjectMethodsService {
   getEnhancedObject(rawObject) {
     return {
+      ...rawObject,
       valueOf: () => rawObject.age,
       toString: () => rawObject.name,
     };
@@ -8,6 +9,7 @@ class ObjectMethodsService {
 
   getEnhancedObject2(rawObject) {
     return {
+      ...rawObject,
       valueOf: () => `[name="${rawObject.name}",age=${rawObject.age}]`,
       toString: () => `[name="${rawObject.name}",age=${rawObject.age}]`,
     };
@@ -15,6 +17,7 @@ class ObjectMethodsService {
 
   getEnhancedObjectWithoutValueOfOrToString(rawObject) {
     return {
+      ...rawObject,
       [Symbol.toPrimitive]: (coercionType) =>
         coercionType === "string"
           ? `[name="${rawObject.name}",age=${rawObject.age}]`
